@@ -1,0 +1,129 @@
+Physics:
+Broken up into a few common components:
+    collider - collision data definitions (sphere, box, etc...)
+    rigid body - dynamic state data (velocity, mass, etc...)
+    space - where all your objects live, controls core logic flow and sometimes space-wide properties
+basics of each:
+    collider:
+        ghost
+        material properties:
+            density vs. mass
+            friction, restitution
+    rigid body:
+        dynamic/static/kinematic
+        mass (inv mass, inv inertia
+        velocity/forces (linear + angular)
+
+physics loop:
+    Integration
+        Semi implicit euler (don't bother with anything else)
+        calculation forces
+        forces -> velocity
+        velocity -> position
+    BroadPhase
+        Do NSquared aabb's to start
+    NarrowPhase
+        start with sphere v. sphere
+        potentially add special shapes like obb, maybe go straight to SAT/GJK depending on ambition
+
+        Info needed: normal, penetration, points (can skip points if no rotation)
+    Resolution
+        Start with impulses
+        If setup correctly not too hard to expand to constraints
+    Publish
+        Telling everyone else about stuff (new positions, collision events, etc...)
+
+Simple Geometry shapes:
+    aabb, sphere, ray
+Intersection:
+    Primitives (sphere v sphere, aabb v aabb, sphere v aabb)
+    SAT/Gjk
+    SAT:
+        Walk all faces, check other support function for penetration
+        any separation return, otherwise lease penetration is best face
+        Contact Info:
+            Find most anti-parallel face
+            Clip all points on face to contact face
+                basically project onto contact face, clip, un-project (barycentric coords)
+
+Recommended implementation order:
+    setup basic components and properties first
+    get integration working (maybe do rotation but then turn off later)
+        requires communicating back to the engine
+    stub broadphase (nsquare aabb)
+    Intersection (no points):
+        sphere v sphere
+        box vs. box
+        sphere vs. box?
+    resolution (no rotation)
+        get normal impulse working (balls hitting with no gravity + restitution) (friction looks weird)
+            get two balls no gravity working
+                make sure to account for separating velocity (don't solve)
+            things look weird without friction so I don't recommend going to boxes with gravity (maybe no gravity to test intersection)
+        get penetration working (with gravity)
+        get friction working
+        add velocity iteration
+    Whatever's most important for your game now:
+    Casts:
+        raycasts!
+    intersection (rotation)
+        points on each object
+        multiple points sometimes (single point has stability issues)
+    resolution (rotation)
+        just add rotational terms
+        in 3d, make sure inertia tensor is in the right space
+    events
+        collision events (post solve)
+
+Debugging
+    Debug Drawing!
+    Pause, Step, Continue,
+    Determinism
+    WhyAreTheyNotColliding!
+        useful for people on your team, not as much you.
+        basically run all collision detection but print a string
+    Be careful of minus signs (they come in almost pairs)
+        Example I had, wrong A/B points from collision detection + negated penetration distance calculation
+        They almost cancel each other but not quite (fixing the A/B points caused worse problems but it was more correct)
+Warnings:
+    Intersection, have to be careful of consistent normal direction (e.g. A to B)
+    Make sure everything's in the correct space:
+        R vectors
+        Inertias (3d)
+    Make sure detection is right. 90% of errors in resolution comes from detection, +- 10%
+
+Advanced things to look into:
+    character controllers
+        static/kinematic (sweeping?)
+    force regions/effects
+    materials
+    more casting
+        frustum, sphere, etc...
+        filters (callbacks?)
+    collision filtering systems:
+        tags? groups/filters?
+    composites
+    more collision shapes
+        generic convex
+        concave (tri mesh)
+        requires mass property calculations (important to not make up!)
+    constraints (contacts/joints)
+        stacking
+        complicated joints
+    optimizations:
+        better broadphases
+        split broadphases
+        sleeping
+        fancy collision detection stuff
+            caching axes
+            gauss maps
+    Debugging tools of all kinds
+        for everone else
+
+Super Advanced:
+    deformables
+        hard to integrate with rigid bodies (a lot of custom work)
+    fracture
+    convex decomposition
+    edge catching
+

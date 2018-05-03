@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="Versions\$(OS)-$(PlatformShortName)-$(ZeroVersion)\ZeroEngine.cpp">
+      <Filter>Zero</Filter>
+    </ClCompile>
+    <ClCompile Include="Versions\$(OS)-$(PlatformShortName)-$(ZeroVersion)\Core.cpp">
+      <Filter>Zero</Filter>
+    </ClCompile>
+    <ClCompile Include="Physics2dPlugin.cpp">
+      <Filter>Plugin</Filter>
+    </ClCompile>
+    <ClCompile Include="Physics2dPluginPrecompiled.cpp">
+      <Filter>Plugin</Filter>
+    </ClCompile>
+    <ClCompile Include="Resolution.cpp">
+      <Filter>Plugin</Filter>
+    </ClCompile>
+    <ClCompile Include="BoxCollider2d.cpp">
+      <Filter>Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Collider2d.cpp">
+      <Filter>Components</Filter>
+    </ClCompile>
+    <ClCompile Include="PhysicsSpace2d.cpp">
+      <Filter>Components</Filter>
+    </ClCompile>
+    <ClCompile Include="RigidBody2d.cpp">
+      <Filter>Components</Filter>
+    </ClCompile>
+    <ClCompile Include="SphereCollider2d.cpp">
+      <Filter>Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Geometry.cpp">
+      <Filter>Geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="Intersection.cpp">
+      <Filter>Geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="Shapes.cpp">
+      <Filter>Geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="SpatialPartition.cpp">
+      <Filter>SpatialPartitions</Filter>
+    </ClCompile>
+    <ClCompile Include="AabbSpatialPartition.cpp">
+      <Filter>SpatialPartitions</Filter>
+    </ClCompile>
+    <ClCompile Include="Debug.cpp">
+      <Filter>Plugin</Filter>
+    </ClCompile>
+    <ClCompile Include="SupportShapes.cpp">
+      <Filter>Geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="Sat.cpp">
+      <Filter>Geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="Gjk.cpp">
+      <Filter>Geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="VoronoiRegions.cpp">
+      <Filter>Geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="Epa.cpp">
+      <Filter>Geometry</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Versions\$(OS)-$(PlatformShortName)-$(ZeroVersion)\ZeroEngine.hpp">
+      <Filter>Zero</Filter>
+    </ClInclude>
+    <ClInclude Include="Versions\$(OS)-$(PlatformShortName)-$(ZeroVersion)\Core.hpp">
+      <Filter>Zero</Filter>
+    </ClInclude>
+    <ClInclude Include="Versions\$(OS)-$(PlatformShortName)-$(ZeroVersion)\Zilch.hpp">
+      <Filter>Zero</Filter>
+    </ClInclude>
+    <ClInclude Include="Physics2dPlugin.hpp">
+      <Filter>Plugin</Filter>
+    </ClInclude>
+    <ClInclude Include="Physics2dPluginPrecompiled.hpp">
+      <Filter>Plugin</Filter>
+    </ClInclude>
+    <ClInclude Include="Resolution.hpp">
+      <Filter>Plugin</Filter>
+    </ClInclude>
+    <ClInclude Include="BoxCollider2d.hpp">
+      <Filter>Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Collider2d.hpp">
+      <Filter>Components</Filter>
+    </ClInclude>
+    <ClInclude Include="PhysicsSpace2d.hpp">
+      <Filter>Components</Filter>
+    </ClInclude>
+    <ClInclude Include="RigidBody2d.hpp">
+      <Filter>Components</Filter>
+    </ClInclude>
+    <ClInclude Include="SphereCollider2d.hpp">
+      <Filter>Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Intersection.hpp">
+      <Filter>Geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="Geometry.hpp">
+      <Filter>Geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="Shapes.hpp">
+      <Filter>Geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="SpatialPartition.hpp">
+      <Filter>SpatialPartitions</Filter>
+    </ClInclude>
+    <ClInclude Include="AabbSpatialPartition.hpp">
+      <Filter>SpatialPartitions</Filter>
+    </ClInclude>
+    <ClInclude Include="Debug.hpp">
+      <Filter>Plugin</Filter>
+    </ClInclude>
+    <ClInclude Include="SupportShapes.hpp">
+      <Filter>Geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="Sat.hpp">
+      <Filter>Geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="Gjk.hpp">
+      <Filter>Geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="VoronoiRegions.hpp">
+      <Filter>Geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="Epa.hpp">
+      <Filter>Geometry</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Zero">
+      <UniqueIdentifier>{383bdb07-6f79-4944-85cd-b13856f5d65e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Plugin">
+      <UniqueIdentifier>{54948aa7-0f0e-4833-80ac-e6f3967be802}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Components">
+      <UniqueIdentifier>{687b4628-e9f0-4bf1-9b5a-8a7026dad2be}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Geometry">
+      <UniqueIdentifier>{aeb417dc-a641-4bb8-a63e-ef3011436c16}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SpatialPartitions">
+      <UniqueIdentifier>{c632e354-487c-4fce-a7ea-2fc25b8f1b78}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Natvis Include="ZeroVisualizers.natvis" />
+  </ItemGroup>
+</Project>
