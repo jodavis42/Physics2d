@@ -151,6 +151,9 @@ void Collider2d::UpdateBoundingVolumes()
     mBoxCollider->UpdateBoundingVolumes();
   if(mSphereCollider != nullptr)
     mSphereCollider->UpdateBoundingVolumes();
+
+  if (mSpace != nullptr)
+    mSpace->mSpatialPartition->Update(GetSpatialPartitionData(), mKey);
 }
 
 SupportShape* Collider2d::CreateSupportShape()

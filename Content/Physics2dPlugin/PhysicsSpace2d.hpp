@@ -25,6 +25,7 @@ public:
   void Initialize(ZeroEngine::CogInitializer* initializer);
   void Destroy();
   
+  void OnAllObjectsInitialized(ZeroEngine::Event* event);
   void OnLogicUpdate(ZeroEngine::UpdateEvent* event);
   void OnFrameUpdate(ZeroEngine::UpdateEvent* event);
 

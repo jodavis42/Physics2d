@@ -35,8 +35,11 @@ BoxCollider2d::~BoxCollider2d()
 void BoxCollider2d::Initialize(ZeroEngine::CogInitializer* initializer)
 {
   mCollider = GetOwner()->has(Collider2d);
-  mCollider->Set(this);
-  UpdateBoundingVolumes();
+  if (mCollider != nullptr)
+  {
+    mCollider->Set(this);
+    mCollider->UpdateBoundingVolumes();
+  }
 }
 
 //***************************************************************************
@@ -67,7 +70,8 @@ void BoxCollider2d::SetSize(Real2 size)
 {
   mLocalSize[0] = Math::Max(0.01f, size[0]);
   mLocalSize[1] = Math::Max(0.01f, size[1]);
-  UpdateBoundingVolumes();
+  if (mCollider != nullptr)
+    mCollider->UpdateBoundingVolumes();
 
   if(mCollider != nullptr)
   {

@@ -35,9 +35,11 @@ SphereCollider2d::~SphereCollider2d()
 void SphereCollider2d::Initialize(ZeroEngine::CogInitializer* initializer)
 {
   mCollider = GetOwner()->has(Collider2d);
-  if(mCollider != nullptr)
+  if (mCollider != nullptr)
+  {
     mCollider->Set(this);
-  UpdateBoundingVolumes();
+    mCollider->UpdateBoundingVolumes();
+  }
 }
 
 //***************************************************************************
@@ -67,7 +69,8 @@ Real SphereCollider2d::GetRadius()
 void SphereCollider2d::SetRadius(Real radius)
 {
   mLocalRadius = Math::Max(0.01f, radius);
-  UpdateBoundingVolumes();
+  if(mCollider != nullptr)
+    mCollider->UpdateBoundingVolumes();
   // Update mass etc...
 }
 

@@ -7,7 +7,8 @@ ZilchDefineType(PhysicsSpace2d, builder, type)
   ZilchBindDestructor();
   ZilchBindConstructor();
   ZilchBindMethod(Initialize);
-  
+  ZilchBindMethod(OnAllObjectsInitialized);
+
   // Note: All event connection methods must be bound
   ZilchBindMethod(OnLogicUpdate);
   ZilchBindMethod(OnFrameUpdate);
@@ -35,34 +36,45 @@ PhysicsSpace2d::~PhysicsSpace2d()
 void PhysicsSpace2d::Initialize(ZeroEngine::CogInitializer* initializer)
 {
   mSpatialPartition = new AabbSpatialPartition();
+  ZeroConnectThisTo(initializer, "AllObjectsInitialized", "OnAllObjectsInitialized")
   ZeroConnectThisTo(this->GetSpace(), "LogicUpdate", "OnLogicUpdate");
   ZeroConnectThisTo(this->GetSpace(), "FrameUpdate", "OnFrameUpdate");
+}
 
+void PhysicsSpace2d::Destroy()
+{
+  while (!mRigidBodies.Empty())
+  {
+    RigidBody2d* body = mRigidBodies.Front();
+    Remove(body);
+  }
+  while (!mColliders.Empty())
+  {
+    Collider2d* collider = mColliders.Front();
+    Remove(collider);
+  }
+  
+  delete mSpatialPartition;
+  mSpatialPartition = nullptr;
+}
+
+void PhysicsSpace2d::OnAllObjectsInitialized(ZeroEngine::Event* event)
+{
   // Currently there's run-in-editor initialization order issues.
   // To get around this add any pre-existing objects when first initialized.
   Zilch::HandleOf<ZeroEngine::SpaceRange> range = GetSpace()->GetAllObjects();
   for (; !range->GetIsEmpty(); range->MoveNext())
   {
-    RigidBody2d* body = range->GetCurrent()->has(RigidBody2d);
+    ZeroEngine::Cog* cog = range->GetCurrent();
+    RigidBody2d* body = cog->has(RigidBody2d);
     if (body != nullptr)
       Add(body);
-    Collider2d* collider = range->GetCurrent()->has(Collider2d);
+    Collider2d* collider = cog->has(Collider2d);
     if (collider != nullptr)
       Add(collider);
   }
 }
 
-void PhysicsSpace2d::Destroy()
-{
-  for (size_t i = 0; i < mRigidBodies.Size(); ++i)
-    mRigidBodies[i]->Destroy();
-  for (size_t i = 0; i < mColliders.Size(); ++i)
-    mColliders[i]->Destroy();
-  delete mSpatialPartition;
-  mSpatialPartition = nullptr;
-}
-
-//***************************************************************************
 void PhysicsSpace2d::OnLogicUpdate(ZeroEngine::UpdateEvent* event)
 {
   float dt = 1 / 60.0f;
@@ -212,21 +224,25 @@ void PhysicsSpace2d::DebugDraw()
 void PhysicsSpace2d::Add(RigidBody2d* body)
 {
   mRigidBodies.PushBack(body);
+  body->mSpace = this;
 }
 
 void PhysicsSpace2d::Remove(RigidBody2d* body)
 {
   mRigidBodies.EraseValueError(body);
+  body->mSpace = nullptr;
 }
 
 void PhysicsSpace2d::Add(Collider2d* collider)
 {
   mColliders.PushBack(collider);
   mSpatialPartition->Insert(collider->GetSpatialPartitionData(), collider->mKey);
+  collider->mSpace = this;
 }
 
 void PhysicsSpace2d::Remove(Collider2d* collider)
 {
   mColliders.EraseValueError(collider);
   mSpatialPartition->Remove(collider->mKey);
+  collider->mSpace = nullptr;
 }
