@@ -23,7 +23,7 @@ ZilchDefineType(BoxCollider2d, builder, type)
 BoxCollider2d::BoxCollider2d()
 {
   mCollider = nullptr;
-  mSize = Real2(1);
+  mWorldSize = mLocalSize = Real2(1);
 }
 
 //***************************************************************************
@@ -54,19 +54,19 @@ void BoxCollider2d::DebugDraw()
   if (mCollider == nullptr)
     return;
 
-  Aabb2d aabb = Aabb2d::BuildFromSize(mCollider->mWorldTranslation, mSize);
-  DrawAabb(aabb);
+  Aabb2d aabb = Aabb2d::BuildFromSize(mCollider->mWorldTranslation, mWorldSize);
+  DrawObb(aabb, mCollider->mWorldRotation);
 }
 
 Real2 BoxCollider2d::GetSize()
 {
-  return mSize;
+  return mLocalSize;
 }
 
 void BoxCollider2d::SetSize(Real2 size)
 {
-  mSize[0] = Math::Max(0.01f, size[0]);
-  mSize[1] = Math::Max(0.01f, size[1]);
+  mLocalSize[0] = Math::Max(0.01f, size[0]);
+  mLocalSize[1] = Math::Max(0.01f, size[1]);
   UpdateBoundingVolumes();
 
   if(mCollider != nullptr)
@@ -74,8 +74,8 @@ void BoxCollider2d::SetSize(Real2 size)
     RigidBody2d* body = mCollider->mRigidBody;
     if (body != nullptr && !body->mStatic)
     {
-      Real w = mSize[0];
-      Real h = mSize[1];
+      Real w = mWorldSize[0];
+      Real h = mWorldSize[1];
       Real density = 1;
       Real volume = w * h;
       Real mass = volume * density;
@@ -91,16 +91,21 @@ void BoxCollider2d::UpdateBoundingVolumes()
 {
   if (mCollider == nullptr)
     return;
-
+  
   Aabb2d& aabb = mCollider->mAabb;
 
-  Real2 pos = mCollider->mWorldTranslation;
-  Real2x2 rotation, absRotation;
-  rotation.Rotate(mCollider->mWorldRotation);
-  for (size_t i = 0; i < 4; ++i)
-    absRotation.array[i] = Math::Abs(rotation.array[i]);
+  Real2 scale = mCollider->GetWorldScale();
+  Real rotation = mCollider->GetWorldRotation();
+  Real2 translation = mCollider->GetWorldTranslation();
 
-  Real2 r = Math::Multiply(absRotation, mSize * 0.5f);
-  aabb.mMin = pos - r;
-  aabb.mMax = pos + r;
+  mWorldSize = mLocalSize * scale;
+
+  Real2x2 rotationMat, absRotationMat;
+  rotationMat.Rotate(rotation);
+  for (size_t i = 0; i < 4; ++i)
+    absRotationMat.array[i] = Math::Abs(rotationMat.array[i]);
+
+  Real2 r = Math::Multiply(absRotationMat, mWorldSize * 0.5f);
+  aabb.mMin = translation - r;
+  aabb.mMax = translation + r;
 }

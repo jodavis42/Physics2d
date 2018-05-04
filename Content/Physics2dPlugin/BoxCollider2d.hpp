@@ -19,7 +19,8 @@ public:
 
   void UpdateBoundingVolumes();
 
-  Real2 mSize;
+  Real2 mLocalSize;
+  Real2 mWorldSize;
 
   Collider2d* mCollider;
 };

@@ -20,8 +20,8 @@ bool Intersection::Intersect(SphereCollider2d* colliderA, SphereCollider2d* coll
 {
   Real2 posA = colliderA->mCollider->mWorldTranslation;
   Real2 posB = colliderB->mCollider->mWorldTranslation;
-  Real rA = colliderA->mRadius;
-  Real rB = colliderB->mRadius;
+  Real rA = colliderA->mWorldRadius;
+  Real rB = colliderB->mWorldRadius;
 
   Real2 aToB = posB - posA;
   Real distSq = Math::LengthSq(aToB);
@@ -43,7 +43,7 @@ bool Intersection::Intersect(SphereCollider2d* colliderA, SphereCollider2d* coll
 bool Intersection::Intersect(SphereCollider2d* sphereCollider, BoxCollider2d* boxCollider, Manifold* manifold)
 {
   Real2 boxPos = boxCollider->mCollider->mWorldTranslation;
-  Real2 boxRadius = boxCollider->mSize / 2.0f;
+  Real2 boxRadius = boxCollider->mWorldSize / 2.0f;
 
   Real2x2 rotation;
   Real2x2 invRotation;
@@ -51,7 +51,7 @@ bool Intersection::Intersect(SphereCollider2d* sphereCollider, BoxCollider2d* bo
   rotation.Rotate(boxCollider->mCollider->mWorldRotation);
 
   Real2 spherePos = sphereCollider->mCollider->mWorldTranslation;
-  Real sphereRadius = sphereCollider->mRadius;
+  Real sphereRadius = sphereCollider->mWorldRadius;
 
   Real2 localSpherePos = Math::Multiply(invRotation, spherePos - boxPos);
   

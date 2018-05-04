@@ -15,7 +15,7 @@ ZilchDefineType(SphereCollider2d, builder, type)
 
   ZilchBindGetterSetterProperty(Radius);
 
-  //type->AddAttribute("RunInEditor");
+  type->AddAttribute("RunInEditor");
   type->AddAttribute("Dependency")->AddParameter("Collider2d");
 }
 
@@ -23,7 +23,7 @@ ZilchDefineType(SphereCollider2d, builder, type)
 SphereCollider2d::SphereCollider2d()
 {
   mCollider = nullptr;
-  mRadius = 1.0f;
+  mWorldRadius = mLocalRadius = 1.0f;
 }
 
 //***************************************************************************
@@ -34,9 +34,9 @@ SphereCollider2d::~SphereCollider2d()
 //***************************************************************************
 void SphereCollider2d::Initialize(ZeroEngine::CogInitializer* initializer)
 {
-  //ZeroConnectThisTo(this->GetSpace(), "LogicUpdate", "OnLogicUpdate");
   mCollider = GetOwner()->has(Collider2d);
-  mCollider->Set(this);
+  if(mCollider != nullptr)
+    mCollider->Set(this);
   UpdateBoundingVolumes();
 }
 
@@ -55,18 +55,18 @@ void SphereCollider2d::DebugDraw()
   if (mCollider == nullptr)
     return;
 
-  Sphere2d sphere(mCollider->mWorldTranslation, mRadius);
+  Sphere2d sphere(mCollider->mWorldTranslation, mWorldRadius);
   DrawSphere(sphere);
 }
 
 Real SphereCollider2d::GetRadius()
 {
-  return mRadius;
+  return mLocalRadius;
 }
 
 void SphereCollider2d::SetRadius(Real radius)
 {
-  mRadius = Math::Max(0.01f, radius);
+  mLocalRadius = Math::Max(0.01f, radius);
   UpdateBoundingVolumes();
   // Update mass etc...
 }
@@ -76,10 +76,15 @@ void SphereCollider2d::UpdateBoundingVolumes()
   if (mCollider == nullptr)
     return;
 
+  Real2 scale = mCollider->GetWorldScale();
+  Real rotation = mCollider->GetWorldRotation();
+  Real2 translation = mCollider->GetWorldTranslation();
+
+  mWorldRadius = mLocalRadius * Math::Max(scale.x, scale.y);
   Aabb2d& aabb = mCollider->mAabb;
 
   Real2 pos = mCollider->mWorldTranslation;
-  Real2 size = Real2(mRadius);
+  Real2 size = Real2(mWorldRadius);
   aabb.mMin = pos - size;
   aabb.mMax = pos + size;
 }

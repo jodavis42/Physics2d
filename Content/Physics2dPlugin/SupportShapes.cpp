@@ -11,7 +11,7 @@ Real2 Face2d::GetNormal() const
 SphereSupportShape::SphereSupportShape(SphereCollider2d* collider)
 {
   mPosition = collider->mCollider->mWorldTranslation;
-  mRadius = collider->mRadius;
+  mRadius = collider->mWorldRadius;
 }
 
 Real2 SphereSupportShape::GetCenter() const
@@ -40,7 +40,7 @@ Real2 BoxSupportShape::GetCenter() const
 Real2 BoxSupportShape::Support(Real2Param dir) const
 {
   Real2 localDir = Math::Multiply(mInvRotation, dir);
-  Real2 radius = Real2(0.5f);
+  Real2 radius = mCollider->mWorldSize * 0.5f;
   Real2 localPoint = Real2::cZero;
   for (size_t i = 0; i < 2; ++i)
     localPoint[i] += Math::Sign(localDir[i]) * radius[i];

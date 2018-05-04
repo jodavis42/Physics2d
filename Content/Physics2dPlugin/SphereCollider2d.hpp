@@ -21,7 +21,8 @@ public:
 
   void UpdateBoundingVolumes();
 
-  Real mRadius;
+  Real mLocalRadius;
+  Real mWorldRadius;
 
   Collider2d* mCollider;
 };
