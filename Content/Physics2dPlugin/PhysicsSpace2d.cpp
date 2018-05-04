@@ -37,6 +37,19 @@ void PhysicsSpace2d::Initialize(ZeroEngine::CogInitializer* initializer)
   mSpatialPartition = new AabbSpatialPartition();
   ZeroConnectThisTo(this->GetSpace(), "LogicUpdate", "OnLogicUpdate");
   ZeroConnectThisTo(this->GetSpace(), "FrameUpdate", "OnFrameUpdate");
+
+  // Currently there's run-in-editor initialization order issues.
+  // To get around this add any pre-existing objects when first initialized.
+  Zilch::HandleOf<ZeroEngine::SpaceRange> range = GetSpace()->GetAllObjects();
+  for (; !range->GetIsEmpty(); range->MoveNext())
+  {
+    RigidBody2d* body = range->GetCurrent()->has(RigidBody2d);
+    if (body != nullptr)
+      Add(body);
+    Collider2d* collider = range->GetCurrent()->has(Collider2d);
+    if (collider != nullptr)
+      Add(collider);
+  }
 }
 
 void PhysicsSpace2d::Destroy()

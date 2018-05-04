@@ -31,6 +31,17 @@ void DrawAabb(const Aabb2d& aabb, Real4Param color)
   ZeroEngine::DebugDraw::Add(handle);
 }
 
+void DrawObb(const Aabb2d& aabb, Real rotation, Real4Param color)
+{
+  Quaternion quat = Math::ToQuaternion(Real3(0, 0, 1), rotation);
+  Zilch::HandleOf<ZeroEngine::DebugBox> handle = ZilchAllocate(ZeroEngine::DebugBox);
+  handle->SetPosition(Math::ToVector3(aabb.GetCenter(), 0));
+  handle->SetHalfExtents(aabb.GetHalfSize());
+  handle->SetColor(color);
+  handle->SetRotation(quat);
+  ZeroEngine::DebugDraw::Add(handle);
+}
+
 void DrawSphere(const Sphere2d& sphere, Real4Param color)
 {
   Zilch::HandleOf<ZeroEngine::DebugCircle> handle = ZilchAllocate(ZeroEngine::DebugCircle);

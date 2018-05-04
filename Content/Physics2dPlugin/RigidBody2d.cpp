@@ -16,6 +16,7 @@ ZilchDefineType(RigidBody2d, builder, type)
   ZilchBindFieldProperty(mAngularVelocity);
   ZilchBindGetterSetterProperty(Static);
 
+  type->AddAttribute("RunInEditor");
   type->AddAttribute("Dependency")->AddParameter("Collider2d");
 }
 
@@ -31,6 +32,7 @@ RigidBody2d::RigidBody2d()
   mAngularVelocity = 0.0f;
   mForce = Real2::cZero;
   mTorque = 0.0f;
+  mSpace = nullptr;
 }
 
 //***************************************************************************
@@ -45,12 +47,13 @@ void RigidBody2d::Initialize(ZeroEngine::CogInitializer* initializer)
   ZeroConnectThisTo(this->GetOwner(), "CogDestroy", "OnCogDestroy");
 
   mSpace = GetSpace()->has(PhysicsSpace2d);
-  mSpace->Add(this);
+  if(mSpace != nullptr)
+    mSpace->Add(this);
+
   mCollider = GetOwner()->has(Collider2d);
   mCollider->mRigidBody = this;
   mWorldCenterOfMass = mCollider->mWorldTranslation;
   mWorldRotation = mCollider->mWorldRotation;
-  //ZeroConnectThisTo(this->GetSpace(), "LogicUpdate", "OnLogicUpdate");
 }
 
 void RigidBody2d::Destroy()

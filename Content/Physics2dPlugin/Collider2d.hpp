@@ -21,8 +21,17 @@ public:
   void Initialize(ZeroEngine::CogInitializer* initializer);
   void Destroy();
 
+  void OnTransformUpdated(ZeroEngine::Event* event);
   void OnLogicUpdate(ZeroEngine::UpdateEvent* event);
   void OnCogDestroy(ZeroEngine::Event* event);
+  void DebugDraw();
+
+  Real2 GetWorldScale();
+  void SetWorldScale(Real2Param scale);
+  Real GetWorldRotation();
+  void SetWorldRotation(Real rotation);
+  Real2 GetWorldTranslation();
+  void SetWorldTranslation(Real2Param translation);
 
   void Set(SphereCollider2d* collider);
   void Clear(SphereCollider2d* collider);
@@ -30,12 +39,14 @@ public:
   void Set(BoxCollider2d* collider);
   void Clear(BoxCollider2d* collider);
 
+  void ReadTransform();
   SpatialPartitionData GetSpatialPartitionData() const;
   void UpdateBoundingVolumes();
   SupportShape* CreateSupportShape();
 
-  Real2 mWorldTranslation;
+  Real2 mWorldScale;
   Real mWorldRotation;
+  Real2 mWorldTranslation;
 
   PhysicsSpace2d* mSpace;
 

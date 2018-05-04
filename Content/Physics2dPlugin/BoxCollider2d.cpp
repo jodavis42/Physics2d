@@ -15,7 +15,7 @@ ZilchDefineType(BoxCollider2d, builder, type)
 
   ZilchBindGetterSetterProperty(Size);
 
-  //type->AddAttribute("RunInEditor");
+  type->AddAttribute("RunInEditor");
   type->AddAttribute("Dependency")->AddParameter("Collider2d");
 }
 
