@@ -17,34 +17,17 @@ struct ObjectProperties
   Real2 mR;
 };
 
-struct ContactImpulse
-{
-  ContactImpulse();
-  void Set(Manifold& manifold, int contactIndex);
-  void SolveVelocityImpulse();
-  void SolvePositionImpulse(Real allowedPenetration, Real percentage = 0.5f);
-
-  Real ComputeImpulse(Real2Param direction, ObjectProperties& objA, ObjectProperties& objB, Real restitution);
-
-  Real2 mPointA;
-  Real2 mPointB;
-  Real2 mNormal;
-  Real mPenetration;
-  Collider2d* mColliderA;
-  Collider2d* mColliderB;
-};
-
-class ResolutionSolver
+class ISolver
 {
 public:
-  ResolutionSolver();
-  void StartFrame();
-  void Add(Manifold& manifold);
+  ISolver();
+  virtual ~ISolver() {};
+  virtual void StartFrame() = 0;
+  virtual void Add(Manifold& manifold) = 0;
 
-  void Solve();
-  void DebugDraw();
+  virtual void Solve() = 0;
+  virtual void DebugDraw() = 0;
 
   size_t mIterations;
-  Array<ContactImpulse> mContactImpulses;
   Real mAllowedPenetration;
 };

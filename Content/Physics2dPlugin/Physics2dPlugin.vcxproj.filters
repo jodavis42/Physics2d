@@ -13,9 +13,6 @@
     <ClCompile Include="Physics2dPluginPrecompiled.cpp">
       <Filter>Plugin</Filter>
     </ClCompile>
-    <ClCompile Include="Resolution.cpp">
-      <Filter>Plugin</Filter>
-    </ClCompile>
     <ClCompile Include="BoxCollider2d.cpp">
       <Filter>Components</Filter>
     </ClCompile>
@@ -64,6 +61,15 @@
     <ClCompile Include="Epa.cpp">
       <Filter>Geometry</Filter>
     </ClCompile>
+    <ClCompile Include="Resolution.cpp">
+      <Filter>Resolution</Filter>
+    </ClCompile>
+    <ClCompile Include="ImpulseSolver.cpp">
+      <Filter>Resolution</Filter>
+    </ClCompile>
+    <ClCompile Include="ConstraintSolver.cpp">
+      <Filter>Resolution</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Versions\$(OS)-$(PlatformShortName)-$(ZeroVersion)\ZeroEngine.hpp">
@@ -79,9 +85,6 @@
       <Filter>Plugin</Filter>
     </ClInclude>
     <ClInclude Include="Physics2dPluginPrecompiled.hpp">
-      <Filter>Plugin</Filter>
-    </ClInclude>
-    <ClInclude Include="Resolution.hpp">
       <Filter>Plugin</Filter>
     </ClInclude>
     <ClInclude Include="BoxCollider2d.hpp">
@@ -132,6 +135,15 @@
     <ClInclude Include="Epa.hpp">
       <Filter>Geometry</Filter>
     </ClInclude>
+    <ClInclude Include="Resolution.hpp">
+      <Filter>Resolution</Filter>
+    </ClInclude>
+    <ClInclude Include="ImpulseSolver.hpp">
+      <Filter>Resolution</Filter>
+    </ClInclude>
+    <ClInclude Include="ConstraintSolver.hpp">
+      <Filter>Resolution</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Zero">
@@ -148,6 +160,9 @@
     </Filter>
     <Filter Include="SpatialPartitions">
       <UniqueIdentifier>{c632e354-487c-4fce-a7ea-2fc25b8f1b78}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resolution">
+      <UniqueIdentifier>{1ce1a037-132d-4542-a68d-d0a9cfc6686f}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

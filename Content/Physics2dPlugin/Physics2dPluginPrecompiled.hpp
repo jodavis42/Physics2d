@@ -47,4 +47,6 @@ ZilchDeclareStaticLibraryAndPlugin(Physics2dPluginLibrary, Physics2dPluginPlugin
 #include "Gjk.hpp"
 #include "VoronoiRegions.hpp"
 #include "Epa.hpp"
+#include "ImpulseSolver.hpp"
+#include "ConstraintSolver.hpp"
 // Auto Includes (used by Visual Studio plugins, do not remove this line)

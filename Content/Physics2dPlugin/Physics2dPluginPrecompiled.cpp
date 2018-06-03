@@ -1,5 +1,11 @@
 #include "Physics2dPluginPrecompiled.hpp"
 
+ZilchDefineExternalBaseType(SolverMode::Enum, Zilch::TypeCopyMode::ValueType, builder, type)
+{
+  ZilchFullBindEnum(builder, type, Zilch::SpecialType::Enumeration);
+  ZilchBindEnumValues(SolverMode);
+}
+
 //***************************************************************************
 ZilchDefineStaticLibraryAndPlugin(Physics2dPluginLibrary, Physics2dPluginPlugin, ZilchDependencyStub(Core) ZilchDependencyStub(ZeroEngine))
 {
@@ -10,6 +16,7 @@ ZilchDefineStaticLibraryAndPlugin(Physics2dPluginLibrary, Physics2dPluginPlugin,
   ZilchInitializeType(Collider2d);
   ZilchInitializeType(SphereCollider2d);
   ZilchInitializeType(BoxCollider2d);
+  ZilchInitializeEnum(SolverMode);
   // Auto Initialize (used by Visual Studio plugins, do not remove this line)
 }
 

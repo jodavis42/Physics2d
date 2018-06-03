@@ -14,6 +14,8 @@ public:
   Collider2d* mSecond;
 };
 
+DeclareEnum2(SolverMode, Impulses, Constraints);
+
 class PhysicsSpace2d : public ZeroEngine::ZilchComponent
 {
 public:
@@ -41,6 +43,9 @@ public:
   void SendEvents();
   void DebugDraw();
 
+  SolverMode::Enum GetSolverMode();
+  void SetSolverMode(SolverMode::Enum mode);
+
   void Add(RigidBody2d* body);
   void Remove(RigidBody2d* body);
   void Add(Collider2d* collider);
@@ -50,8 +55,9 @@ public:
   Array<RigidBody2d*> mRigidBodies;
   Array<Collider2d*> mColliders;
   Array<ColliderPair> mPossiblePairs;
-  ResolutionSolver mSolver;
+  ISolver* mSolver;
 
   Real2 mGravityAcceleration;
   bool mDebugDraw;
+  SolverMode::Enum mSolverMode;
 };

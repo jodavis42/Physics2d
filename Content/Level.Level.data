@@ -77,7 +77,7 @@ Level
 		var Name = "EditorCamera"
 		Transform 
 		{
-			var Translation = Real3{-0.166630387, 0.437954992, 20}
+			var Translation = Real3{-1.04203379, 6.51592398, 20}
 			var Scale = Real3{1, 1, 1}
 			var Rotation = Quaternion{0, -1.09278471e-08, 0, 1}
 		}
@@ -130,7 +130,7 @@ Level
 			var FarPlane = 500
 			var PerspectiveMode = PerspectiveMode.Orthographic
 			var FieldOfView = 45
-			var Size = 44.5107536
+			var Size = 22.1033955
 		}
 		EditorCameraController 
 		{
@@ -139,7 +139,7 @@ Level
 			var LookDistance = 20
 			var VerticalAngle = 0
 			var HorizontalAngle = 0
-			var LookTarget = Real3{-0.166630387, 0.437954992, -7.3342199e-09}
+			var LookTarget = Real3{-1.04203379, 6.51592398, -4.55993039e-08}
 			var MoveSensitivity = 1
 		}
 	}
@@ -265,7 +265,7 @@ Level
 		var Name = "Sprite"
 		Transform 
 		{
-			var Translation = Real3{1.1054703, 0, -2.74339151e-09}
+			var Translation = Real3{1.89589798, 0, -2.74339151e-09}
 			var Scale = Real3{1, 1, 1}
 			var Rotation = Quaternion{0, 0, 0, 1}
 		}
@@ -307,7 +307,7 @@ Level
 		var Name = "Sprite"
 		Transform 
 		{
-			var Translation = Real3{2.28717518, 0, -2.74339151e-09}
+			var Translation = Real3{3.05193281, 0, -2.74339151e-09}
 			var Scale = Real3{1, 1, 1}
 			var Rotation = Quaternion{0, 0, 0, 1}
 		}
@@ -349,7 +349,7 @@ Level
 		var Name = "Sprite"
 		Transform 
 		{
-			var Translation = Real3{3.58324337, 0, -2.74339151e-09}
+			var Translation = Real3{7.99976206, 0, -2.74339151e-09}
 			var Scale = Real3{1, 1, 1}
 			var Rotation = Quaternion{0, 0, 0, 1}
 		}
@@ -391,7 +391,7 @@ Level
 		var Name = "Sprite"
 		Transform 
 		{
-			var Translation = Real3{4.49186468, 1.19256699, -2.74339151e-09}
+			var Translation = Real3{7.99976206, 1.22539806, -2.74339151e-09}
 			var Scale = Real3{1, 1, 1}
 			var Rotation = Quaternion{0, 0, 0, 1}
 		}
@@ -433,7 +433,7 @@ Level
 		var Name = "Sprite"
 		Transform 
 		{
-			var Translation = Real3{5.55192375, 1.19256699, -2.74339151e-09}
+			var Translation = Real3{7.99976206, 2.4507947, -2.74339151e-09}
 			var Scale = Real3{1, 1, 1}
 			var Rotation = Quaternion{0, 0, 0, 1}
 		}
@@ -475,7 +475,7 @@ Level
 		var Name = "Sprite"
 		Transform 
 		{
-			var Translation = Real3{6.36589813, 1.19256699, -2.74339151e-09}
+			var Translation = Real3{3.14441347, 2.4507947, -2.74339151e-09}
 			var Scale = Real3{1, 1, 1}
 			var Rotation = Quaternion{0, 0, 0, 1}
 		}
@@ -505,7 +505,7 @@ Level
 		{
 			var LinearVelocity = Real2{0, 0}
 			var AngularVelocity = 0
-			var Static = true
+			var Static = false
 		}
 		BoxCollider2d 
 		{
@@ -517,7 +517,7 @@ Level
 		var Name = "Sprite"
 		Transform 
 		{
-			var Translation = Real3{7.217731, 1.19256699, -2.74339151e-09}
+			var Translation = Real3{3.14441347, 3.44498563, -2.74339151e-09}
 			var Scale = Real3{1, 1, 1}
 			var Rotation = Quaternion{0, 0, 0, 1}
 		}
@@ -547,7 +547,7 @@ Level
 		{
 			var LinearVelocity = Real2{0, 0}
 			var AngularVelocity = 0
-			var Static = true
+			var Static = false
 		}
 		BoxCollider2d 
 		{
@@ -559,7 +559,7 @@ Level
 		var Name = "Sprite"
 		Transform 
 		{
-			var Translation = Real3{7.9559865, 1.19256699, -2.74339151e-09}
+			var Translation = Real3{3.14441347, 5.24839973, -2.74339151e-09}
 			var Scale = Real3{1, 1, 1}
 			var Rotation = Quaternion{0, 0, 0, 1}
 		}
@@ -589,7 +589,7 @@ Level
 		{
 			var LinearVelocity = Real2{0, 0}
 			var AngularVelocity = 0
-			var Static = true
+			var Static = false
 		}
 		BoxCollider2d 
 		{
@@ -601,7 +601,7 @@ Level
 		var Name = "Sprite"
 		Transform 
 		{
-			var Translation = Real3{-1.37230635, 0, -2.74339151e-09}
+			var Translation = Real3{3.14441347, 6.05762434, -2.74339151e-09}
 			var Scale = Real3{1, 1, 1}
 			var Rotation = Quaternion{0, 0, 0, 1}
 		}
@@ -631,7 +631,7 @@ Level
 		{
 			var LinearVelocity = Real2{0, 0}
 			var AngularVelocity = 0
-			var Static = true
+			var Static = false
 		}
 		BoxCollider2d 
 		{
@@ -643,7 +643,7 @@ Level
 		var Name = "Sprite"
 		Transform 
 		{
-			var Translation = Real3{-2.40153217, 0, -2.74339151e-09}
+			var Translation = Real3{3.14441347, 7.09805632, -2.74339151e-09}
 			var Scale = Real3{1, 1, 1}
 			var Rotation = Quaternion{0, 0, 0, 1}
 		}
@@ -673,7 +673,7 @@ Level
 		{
 			var LinearVelocity = Real2{0, 0}
 			var AngularVelocity = 0
-			var Static = true
+			var Static = false
 		}
 		BoxCollider2d 
 		{
@@ -685,7 +685,7 @@ Level
 		var Name = "Sprite"
 		Transform 
 		{
-			var Translation = Real3{-4.26939201, 0, -2.74339151e-09}
+			var Translation = Real3{3.14441347, 7.86103964, -2.74339151e-09}
 			var Scale = Real3{1, 1, 1}
 			var Rotation = Quaternion{0, 0, 0, 1}
 		}
@@ -711,6 +711,12 @@ Level
 		Collider2d 
 		{
 		}
+		RigidBody2d 
+		{
+			var LinearVelocity = Real2{0, 0}
+			var AngularVelocity = 0
+			var Static = false
+		}
 		BoxCollider2d 
 		{
 			var Size = Real2{1, 1}
@@ -721,9 +727,9 @@ Level
 		var Name = "Sprite"
 		Transform 
 		{
-			var Translation = Real3{-4.07879496, 1.48666, -2.74338996e-09}
+			var Translation = Real3{4.23108816, 0, -2.74339151e-09}
 			var Scale = Real3{1, 1, 1}
-			var Rotation = Quaternion{0, 0, 0.319508851, 0.947583318}
+			var Rotation = Quaternion{0, 0, 0, 1}
 		}
 		Sprite 
 		{
@@ -763,7 +769,7 @@ Level
 		var Name = "Sprite"
 		Transform 
 		{
-			var Translation = Real3{-0.114358187, 1.18170571, -2.74339151e-09}
+			var Translation = Real3{5.38712311, 0, -2.74339151e-09}
 			var Scale = Real3{1, 1, 1}
 			var Rotation = Quaternion{0, 0, 0, 1}
 		}
@@ -793,7 +799,7 @@ Level
 		{
 			var LinearVelocity = Real2{0, 0}
 			var AngularVelocity = 0
-			var Static = false
+			var Static = true
 		}
 		BoxCollider2d 
 		{
@@ -805,7 +811,7 @@ Level
 		var Name = "Sprite"
 		Transform 
 		{
-			var Translation = Real3{-0.114358187, 2.63025069, -2.74339151e-09}
+			var Translation = Real3{6.84372711, 0, -2.74339151e-09}
 			var Scale = Real3{1, 1, 1}
 			var Rotation = Quaternion{0, 0, 0, 1}
 		}
@@ -822,6 +828,93 @@ Level
 			var VertexColor = Real4{1, 1, 1, 1}
 			var GeometryMode = SpriteGeometryMode.ZPlane
 			var SpriteSource = "5275aa4d802dd6dc:Square"
+			var FlipX = false
+			var FlipY = false
+			var AnimationActive = true
+			var AnimationSpeed = 1
+			var StartFrame = 0
+		}
+		Collider2d 
+		{
+		}
+		RigidBody2d 
+		{
+			var LinearVelocity = Real2{0, 0}
+			var AngularVelocity = 0
+			var Static = true
+		}
+		BoxCollider2d 
+		{
+			var Size = Real2{1, 1}
+		}
+	}
+	Cog [ContextId:20]
+	{
+		var Name = "Sprite"
+		Transform 
+		{
+			var Translation = Real3{-3.63913298, 3.37579823, -2.74339151e-09}
+			var Scale = Real3{3.2095058, 1.04926598, 1}
+			var Rotation = Quaternion{0, 0, -0.330208182, 0.943908215}
+		}
+		Sprite 
+		{
+			var Visible = true
+			var ViewCulling = true
+			var VisibilityEvents = true
+			var OverrideBoundingBox = false
+			var LocalAabbCenter = Real3{0, 0, 0}
+			var LocalAabbHalfExtents = Real3{1, 1, 1}
+			var GroupSortValue = 0
+			var Material = "582c575af53d18c9:AlphaSprite"
+			var VertexColor = Real4{1, 1, 1, 1}
+			var GeometryMode = SpriteGeometryMode.ZPlane
+			var SpriteSource = "5275aa4d802dd6dc:Square"
+			var FlipX = false
+			var FlipY = false
+			var AnimationActive = true
+			var AnimationSpeed = 1
+			var StartFrame = 0
+		}
+		Collider2d 
+		{
+		}
+		RigidBody2d 
+		{
+			var LinearVelocity = Real2{0, 0}
+			var AngularVelocity = 0
+			var Static = true
+		}
+		BoxCollider2d 
+		{
+			var Size = Real2{1, 1}
+		}
+		Test 
+		{
+		}
+	}
+	Cog [ContextId:21]
+	{
+		var Name = "Sprite"
+		Transform 
+		{
+			var Translation = Real3{-4.2013607, 8.99694824, -2.74339151e-09}
+			var Scale = Real3{1, 1, 1}
+			var Rotation = Quaternion{0, 0, 0, 1}
+		}
+		Sprite 
+		{
+			var Visible = true
+			var ViewCulling = true
+			var VisibilityEvents = true
+			var OverrideBoundingBox = false
+			var LocalAabbCenter = Real3{0, 0, 0}
+			var LocalAabbHalfExtents = Real3{1, 1, 1}
+			var GroupSortValue = 0
+			var Material = "582c575af53d18c9:AlphaSprite"
+			var VertexColor = Real4{1, 1, 1, 1}
+			var GeometryMode = SpriteGeometryMode.ZPlane
+			var SpriteSource = "5274db4c2e7c11f9:Circle"
 			var FlipX = false
 			var FlipY = false
 			var AnimationActive = true
@@ -837,303 +930,9 @@ Level
 			var AngularVelocity = 0
 			var Static = false
 		}
-		BoxCollider2d 
-		{
-			var Size = Real2{1, 1}
-		}
-	}
-	Cog [ContextId:20]
-	{
-		var Name = "Sprite"
-		Transform 
-		{
-			var Translation = Real3{-0.114358187, 3.77383828, -2.74339151e-09}
-			var Scale = Real3{1, 1, 1}
-			var Rotation = Quaternion{0, 0, 0, 1}
-		}
-		Sprite 
-		{
-			var Visible = true
-			var ViewCulling = true
-			var VisibilityEvents = true
-			var OverrideBoundingBox = false
-			var LocalAabbCenter = Real3{0, 0, 0}
-			var LocalAabbHalfExtents = Real3{1, 1, 1}
-			var GroupSortValue = 0
-			var Material = "582c575af53d18c9:AlphaSprite"
-			var VertexColor = Real4{1, 1, 1, 1}
-			var GeometryMode = SpriteGeometryMode.ZPlane
-			var SpriteSource = "5275aa4d802dd6dc:Square"
-			var FlipX = false
-			var FlipY = false
-			var AnimationActive = true
-			var AnimationSpeed = 1
-			var StartFrame = 0
-		}
-		Collider2d 
-		{
-		}
-		RigidBody2d 
-		{
-			var LinearVelocity = Real2{0, 0}
-			var AngularVelocity = 0
-			var Static = true
-		}
-		BoxCollider2d 
-		{
-			var Size = Real2{1, 1}
-		}
-	}
-	Cog [ContextId:21]
-	{
-		var Name = "Sprite"
-		Transform 
-		{
-			var Translation = Real3{2.40075445, 4.91820574, -2.74339151e-09}
-			var Scale = Real3{1, 1, 1}
-			var Rotation = Quaternion{0, 0, 0, 1}
-		}
-		Sprite 
-		{
-			var Visible = true
-			var ViewCulling = true
-			var VisibilityEvents = true
-			var OverrideBoundingBox = false
-			var LocalAabbCenter = Real3{0, 0, 0}
-			var LocalAabbHalfExtents = Real3{1, 1, 1}
-			var GroupSortValue = 0
-			var Material = "582c575af53d18c9:AlphaSprite"
-			var VertexColor = Real4{1, 1, 1, 1}
-			var GeometryMode = SpriteGeometryMode.ZPlane
-			var SpriteSource = "5274db4c2e7c11f9:Circle"
-			var FlipX = false
-			var FlipY = false
-			var AnimationActive = true
-			var AnimationSpeed = 1
-			var StartFrame = 0
-		}
-		Collider2d 
-		{
-		}
-		RigidBody2d 
-		{
-			var LinearVelocity = Real2{0, 0}
-			var AngularVelocity = 0
-			var Static = true
-		}
 		SphereCollider2d 
 		{
 			var Radius = 0.5
-		}
-	}
-	Cog [ContextId:22]
-	{
-		var Name = "Sprite"
-		Transform 
-		{
-			var Translation = Real3{5.25912952, 2.4384234, -2.74339151e-09}
-			var Scale = Real3{1, 1, 1}
-			var Rotation = Quaternion{0, 0, 0, 1}
-		}
-		Sprite 
-		{
-			var Visible = true
-			var ViewCulling = true
-			var VisibilityEvents = true
-			var OverrideBoundingBox = false
-			var LocalAabbCenter = Real3{0, 0, 0}
-			var LocalAabbHalfExtents = Real3{1, 1, 1}
-			var GroupSortValue = 0
-			var Material = "582c575af53d18c9:AlphaSprite"
-			var VertexColor = Real4{1, 1, 1, 1}
-			var GeometryMode = SpriteGeometryMode.ZPlane
-			var SpriteSource = "5274db4c2e7c11f9:Circle"
-			var FlipX = false
-			var FlipY = false
-			var AnimationActive = true
-			var AnimationSpeed = 1
-			var StartFrame = 0
-		}
-		Collider2d 
-		{
-		}
-		RigidBody2d 
-		{
-			var LinearVelocity = Real2{0, 0}
-			var AngularVelocity = 0
-			var Static = true
-		}
-		SphereCollider2d 
-		{
-			var Radius = 0.5
-		}
-	}
-	Cog [ContextId:23]
-	{
-		var Name = "Sprite"
-		Transform 
-		{
-			var Translation = Real3{2.24931645, 6.5461545, -2.74339151e-09}
-			var Scale = Real3{1, 1, 1}
-			var Rotation = Quaternion{0, 0, 0, 1}
-		}
-		Sprite 
-		{
-			var Visible = true
-			var ViewCulling = true
-			var VisibilityEvents = true
-			var OverrideBoundingBox = false
-			var LocalAabbCenter = Real3{0, 0, 0}
-			var LocalAabbHalfExtents = Real3{1, 1, 1}
-			var GroupSortValue = 0
-			var Material = "582c575af53d18c9:AlphaSprite"
-			var VertexColor = Real4{1, 1, 1, 1}
-			var GeometryMode = SpriteGeometryMode.ZPlane
-			var SpriteSource = "5274db4c2e7c11f9:Circle"
-			var FlipX = false
-			var FlipY = false
-			var AnimationActive = true
-			var AnimationSpeed = 1
-			var StartFrame = 0
-		}
-		Collider2d 
-		{
-		}
-		RigidBody2d 
-		{
-			var LinearVelocity = Real2{0, 0}
-			var AngularVelocity = 0
-			var Static = true
-		}
-		SphereCollider2d 
-		{
-			var Radius = 0.5
-		}
-	}
-	Cog [ContextId:24]
-	{
-		var Name = "Sprite"
-		Transform 
-		{
-			var Translation = Real3{1.0567503, 6.5461545, -2.74339151e-09}
-			var Scale = Real3{1, 1, 1}
-			var Rotation = Quaternion{0, 0, 0, 1}
-		}
-		Sprite 
-		{
-			var Visible = true
-			var ViewCulling = true
-			var VisibilityEvents = true
-			var OverrideBoundingBox = false
-			var LocalAabbCenter = Real3{0, 0, 0}
-			var LocalAabbHalfExtents = Real3{1, 1, 1}
-			var GroupSortValue = 0
-			var Material = "582c575af53d18c9:AlphaSprite"
-			var VertexColor = Real4{1, 1, 1, 1}
-			var GeometryMode = SpriteGeometryMode.ZPlane
-			var SpriteSource = "5274db4c2e7c11f9:Circle"
-			var FlipX = false
-			var FlipY = false
-			var AnimationActive = true
-			var AnimationSpeed = 1
-			var StartFrame = 0
-		}
-		Collider2d 
-		{
-		}
-		RigidBody2d 
-		{
-			var LinearVelocity = Real2{0, 0}
-			var AngularVelocity = 0
-			var Static = true
-		}
-		SphereCollider2d 
-		{
-			var Radius = 0.5
-		}
-	}
-	Cog [ContextId:25]
-	{
-		var Name = "Sprite"
-		Transform 
-		{
-			var Translation = Real3{-1.72162986, 6.5461545, -2.74339151e-09}
-			var Scale = Real3{1, 1, 1}
-			var Rotation = Quaternion{0, 0, 0, 1}
-		}
-		Sprite 
-		{
-			var Visible = true
-			var ViewCulling = true
-			var VisibilityEvents = true
-			var OverrideBoundingBox = false
-			var LocalAabbCenter = Real3{0, 0, 0}
-			var LocalAabbHalfExtents = Real3{1, 1, 1}
-			var GroupSortValue = 0
-			var Material = "582c575af53d18c9:AlphaSprite"
-			var VertexColor = Real4{1, 1, 1, 1}
-			var GeometryMode = SpriteGeometryMode.ZPlane
-			var SpriteSource = "5274db4c2e7c11f9:Circle"
-			var FlipX = false
-			var FlipY = false
-			var AnimationActive = true
-			var AnimationSpeed = 1
-			var StartFrame = 0
-		}
-		Collider2d 
-		{
-		}
-		RigidBody2d 
-		{
-			var LinearVelocity = Real2{0, 0}
-			var AngularVelocity = 0
-			var Static = true
-		}
-		SphereCollider2d 
-		{
-			var Radius = 0.5
-		}
-	}
-	Cog [ContextId:26]
-	{
-		var Name = "Sprite"
-		Transform 
-		{
-			var Translation = Real3{-3.50700164, 11.3977528, -2.74339151e-09}
-			var Scale = Real3{1, 1, 1}
-			var Rotation = Quaternion{0, 0, 0, 1}
-		}
-		Sprite 
-		{
-			var Visible = true
-			var ViewCulling = true
-			var VisibilityEvents = true
-			var OverrideBoundingBox = false
-			var LocalAabbCenter = Real3{0, 0, 0}
-			var LocalAabbHalfExtents = Real3{1, 1, 1}
-			var GroupSortValue = 0
-			var Material = "582c575af53d18c9:AlphaSprite"
-			var VertexColor = Real4{1, 1, 1, 1}
-			var GeometryMode = SpriteGeometryMode.ZPlane
-			var SpriteSource = "5275aa4d802dd6dc:Square"
-			var FlipX = false
-			var FlipY = false
-			var AnimationActive = true
-			var AnimationSpeed = 1
-			var StartFrame = 0
-		}
-		Collider2d 
-		{
-		}
-		RigidBody2d 
-		{
-			var LinearVelocity = Real2{0, 0}
-			var AngularVelocity = 0
-			var Static = true
-		}
-		BoxCollider2d 
-		{
-			var Size = Real2{1, 1}
 		}
 	}
 }

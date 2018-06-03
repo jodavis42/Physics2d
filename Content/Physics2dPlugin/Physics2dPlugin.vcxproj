@@ -123,10 +123,12 @@ EXIT 0
     <ClCompile Include="AabbSpatialPartition.cpp" />
     <ClCompile Include="BoxCollider2d.cpp" />
     <ClCompile Include="Collider2d.cpp" />
+    <ClCompile Include="ConstraintSolver.cpp" />
     <ClCompile Include="Debug.cpp" />
     <ClCompile Include="Epa.cpp" />
     <ClCompile Include="Geometry.cpp" />
     <ClCompile Include="Gjk.cpp" />
+    <ClCompile Include="ImpulseSolver.cpp" />
     <ClCompile Include="Intersection.cpp" />
     <ClCompile Include="Physics2dPlugin.cpp" />
     <ClCompile Include="Physics2dPluginPrecompiled.cpp">
@@ -139,10 +141,12 @@ EXIT 0
     <ClInclude Include="AabbSpatialPartition.hpp" />
     <ClInclude Include="BoxCollider2d.hpp" />
     <ClInclude Include="Collider2d.hpp" />
+    <ClInclude Include="ConstraintSolver.hpp" />
     <ClInclude Include="Debug.hpp" />
     <ClInclude Include="Epa.hpp" />
     <ClInclude Include="Geometry.hpp" />
     <ClInclude Include="Gjk.hpp" />
+    <ClInclude Include="ImpulseSolver.hpp" />
     <ClInclude Include="Intersection.hpp" />
     <ClInclude Include="Physics2dPlugin.hpp" />
     <ClInclude Include="Physics2dPluginPrecompiled.hpp" />

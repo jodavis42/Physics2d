@@ -15,6 +15,7 @@ ZilchDefineType(PhysicsSpace2d, builder, type)
 
   ZilchBindFieldProperty(mGravityAcceleration);
   ZilchBindFieldProperty(mDebugDraw);
+  ZilchBindGetterSetterProperty(SolverMode);
 
   type->AddAttribute("RunInEditor");
 }
@@ -23,6 +24,7 @@ ZilchDefineType(PhysicsSpace2d, builder, type)
 PhysicsSpace2d::PhysicsSpace2d()
 {
   mGravityAcceleration = Real2(0, -10);
+  mSolver = new ImpulseSolver();
   mDebugDraw = true;
 }
 
@@ -56,6 +58,8 @@ void PhysicsSpace2d::Destroy()
   
   delete mSpatialPartition;
   mSpatialPartition = nullptr;
+  delete mSolver;
+  mSolver = nullptr;
 }
 
 void PhysicsSpace2d::OnAllObjectsInitialized(ZeroEngine::Event* event)
@@ -171,7 +175,7 @@ void PhysicsSpace2d::BroadPhase()
 
 void PhysicsSpace2d::NarrowPhase()
 {
-  mSolver.StartFrame();
+  mSolver->StartFrame();
   for (size_t i = 0; i < mPossiblePairs.Size(); ++i)
   {
     ColliderPair& pair = mPossiblePairs[i];
@@ -182,13 +186,13 @@ void PhysicsSpace2d::NarrowPhase()
     if (!Intersection::Intersect(colliderA, colliderB, &manifold))
       continue;
     
-    mSolver.Add(manifold);
+    mSolver->Add(manifold);
   }
 }
 
 void PhysicsSpace2d::Resolution()
 {
-  mSolver.Solve();
+  mSolver->Solve();
 }
 
 void PhysicsSpace2d::Publish()
@@ -218,7 +222,25 @@ void PhysicsSpace2d::SendEvents()
 void PhysicsSpace2d::DebugDraw()
 {
   mSpatialPartition->DebugDraw(0);
-  mSolver.DebugDraw();
+  mSolver->DebugDraw();
+}
+
+SolverMode::Enum PhysicsSpace2d::GetSolverMode()
+{
+  return mSolverMode;
+}
+
+void PhysicsSpace2d::SetSolverMode(SolverMode::Enum mode)
+{
+  if (mode != mSolverMode)
+  {
+    delete mSolver;
+    if (mode == SolverMode::Constraints)
+      mSolver = new ConstraintSolver();
+    else if (mode == SolverMode::Impulses)
+      mSolver = new ImpulseSolver();
+  }
+  mSolverMode = mode;
 }
 
 void PhysicsSpace2d::Add(RigidBody2d* body)
