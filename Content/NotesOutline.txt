@@ -127,3 +127,19 @@ Super Advanced:
     convex decomposition
     edge catching
 
+Demos:
+    Integration stability
+    Constraints vs. impulses
+        Advanced constraints (ropes, etc...)
+    Impelemtation order:
+        Basic integration
+        Basic detection
+        Basic resolution
+            no gravity
+            resting (show no penetration)
+            no friction vs. friction
+            show rotation with no friction
+    Debug Drawing
+        Large scene with a lot of data
+    
+    
