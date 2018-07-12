@@ -143,3 +143,14 @@ Demos:
         Large scene with a lot of data
     
     
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+No optimization is better than not doing anything
+  potentially invert or something to be more clear
+  
+Impulse j and constraint j are the same
+  don't do fancy things beyond simple iteration with impulses (no shock propogation)
+Common NextSteps:
+    Character controller
+    kinematic (hierarchies, etc...)        
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
